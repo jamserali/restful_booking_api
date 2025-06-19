@@ -1,25 +1,33 @@
-node_modules/
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
-
-# Python-specific
-__pycache__/
-*.pyc
-.env
-
-# VSCode settings
-.vscode/
-
-# OS-generated
-.DS_Store
-Thumbs.db
-
 # Logs
 *.log
 
-# Virtual environments
-venv/
-.html
-.idea/
+# Environment files
+.env
+
+# Node dependencies
+node_modules/
+
+# Python files
+__pycache__/
+*.pyc
+
+# Build output
+dist/
+build/
+
+# Ignore everything in folder except one file
+secret/*
+!secret/keepme.txt
+
+#Ignore png
+*.png
+
+inspectionProfiles/
+*.iml
+*.xml
+
+/__pycache__/
+
+/.idea/
+/reports/
+/assets/
