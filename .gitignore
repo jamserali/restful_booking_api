@@ -3,3 +3,22 @@ node_modules/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# Python-specific
+__pycache__/
+*.pyc
+.env
+
+# VSCode settings
+.vscode/
+
+# OS-generated
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Virtual environments
+venv/
+
