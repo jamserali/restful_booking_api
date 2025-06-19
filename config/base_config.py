@@ -3,3 +3,4 @@ class BaseConfig:
     AUTH_URL = "/auth"
     BOOKING_URL = "/booking"
     TIMEOUT = 10  # seconds
+    SECRET_NAME = "Secret_name"
