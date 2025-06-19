@@ -57,6 +57,8 @@ class TestBookingCRUD:
                 headers=Headers.get_json_headers(token=auth_token),
                 json=payload
             )
+        result = validate_response(response)
+        pretty_print(result)
         assert response.status_code == 200
 
     def test_delete_booking(self, api_client, auth_token):
