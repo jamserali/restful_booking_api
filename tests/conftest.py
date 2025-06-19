@@ -1,8 +1,7 @@
 import pytest
-
 from data.headers import Headers
 from utils.api_client import APIClient
-from data.payloads import get_auth_payload
+from data.payloads import get_auth_payload, get_access_token_payload
 from endpoints.booking_endpoints import BookingEndpoints
 
 @pytest.fixture

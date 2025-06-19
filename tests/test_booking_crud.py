@@ -36,6 +36,10 @@ class TestBookingCRUD:
             headers=Headers.get_json_headers(token=auth_token),
             json=payload
         )
+        # response = api_client.make_authenticated_request(BookingEndpoints.booking_by_id(booking_id),
+        #                                                  headers=Headers.get_json_headers(token=auth_token),
+        #                                                  json=payload)
+
         result = validate_response(response)
         pretty_print(result)
         assert result == payload

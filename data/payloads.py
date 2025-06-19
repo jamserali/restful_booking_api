@@ -28,3 +28,11 @@ def get_updated_booking_payload():
         "additionalneeds": "Lunch"
     })
     return payload
+
+
+def get_access_token_payload(client_id, client_secret):
+    return {
+            "grand_type": "client_credentials",
+            "client_id": client_id,
+            "client_secret": client_secret
+    }
