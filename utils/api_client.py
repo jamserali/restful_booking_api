@@ -10,7 +10,7 @@ class APIClient:
     def __init__(self):
         self.base_url = ActiveConfig.BASE_URL
         self.timeout = ActiveConfig.TIMEOUT
-        # self.auth_token = self.get_access_token()
+        # self.auth_token = None
 
     # Implemented AWS Secret manager to get client secret and client_id
     def get_secret(self, secret_name, region_name="us-east-1"):
