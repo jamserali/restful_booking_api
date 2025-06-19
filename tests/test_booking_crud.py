@@ -60,6 +60,8 @@ class TestBookingCRUD:
         result = validate_response(response)
         pretty_print(result)
         assert response.status_code == 200
+        assert result == payload
+
 
     def test_delete_booking(self, api_client, auth_token):
         """Test deleting a booking"""
