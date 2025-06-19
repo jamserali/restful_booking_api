@@ -19,5 +19,11 @@ class ProdConfig(BaseConfig):
     PASSWORD = "password123"
 
 
+class QAConfig(BaseConfig):
+    ENV = "QA"
+    USERNAME = "admin"
+    PASSWORD = "password123"
+
+
 # Set active configuration
-ActiveConfig = DevConfig  # Change this to switch environments
+ActiveConfig = QAConfig  # Change this to switch environments
