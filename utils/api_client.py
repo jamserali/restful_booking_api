@@ -54,6 +54,14 @@ class APIClient:
             timeout=self.timeout
         )
 
+    def patch(self, url, headers=None, json=None):
+        return requests.patch(
+            url,
+            headers=headers,
+            json=json,
+            timeout=self.timeout
+        )
+
     def delete(self, url, headers=None):
         return requests.delete(
             url,

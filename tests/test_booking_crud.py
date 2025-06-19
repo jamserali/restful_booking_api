@@ -3,7 +3,7 @@ import pytest
 from data.headers import Headers
 from utils.api_client import APIClient
 from utils.helpers import validate_response, pretty_print
-from data.payloads import get_booking_payload, get_updated_booking_payload
+from data.payloads import get_booking_payload, get_updated_booking_payload, get_partially_update_booking_payload
 from endpoints.booking_endpoints import BookingEndpoints
 
 
@@ -47,6 +47,17 @@ class TestBookingCRUD:
         result = validate_response(response)
         pretty_print(result)
         assert result == payload
+
+        # PartialUpdateBooking
+    def test_partial_update_booking(self, api_client, auth_token):
+
+        payload = get_partially_update_booking_payload()
+        response = api_client.patch(
+                BookingEndpoints.booking_by_id(TestBookingCRUD.booking_id),
+                headers=Headers.get_json_headers(token=auth_token),
+                json=payload
+            )
+        assert response.status_code == 200
 
     def test_delete_booking(self, api_client, auth_token):
         """Test deleting a booking"""
