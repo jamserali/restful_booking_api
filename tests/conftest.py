@@ -21,13 +21,13 @@ def aws_secrets():
     except Exception as e:
         pytest.skip(f"AWS Secrets not available: {str(e)}")
 
-
+# Oauth token
 @pytest.fixture
 def aws_auth_token(aws_secrets):
     """Fixture to get auth token (already handled by APIClient)"""
     return AWSSecretManager.get_access_token()
 
-
+# Basic Auth token
 @pytest.fixture
 def auth_token(api_client):
     response = api_client.post(
