@@ -18,7 +18,6 @@ class APIClient:
         self.session.mount('https://', HTTPAdapter(max_retries=self.retries))
         # self.auth_token = None
 
-
     def post(self, url, headers=None, json=None):
         """Send a POST request with retries and timeout."""
         try:
