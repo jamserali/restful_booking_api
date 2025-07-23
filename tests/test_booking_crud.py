@@ -1,4 +1,3 @@
-import pytest
 
 from data.headers import Headers
 from utils.helpers import validate_response, pretty_print
@@ -11,10 +10,10 @@ class TestBookingCRUD:
         """Test creating a new booking"""
         payload = get_booking_payload()
         response = api_client.post(
-            BookingEndpoints.booking(),
-            headers=Headers.get_json_headers(),
-            json=payload
-        )
+                                   BookingEndpoints.booking(),
+                                   headers=Headers.get_json_headers(),
+                                   json=payload
+                                   )
         result = validate_response(response)
         pretty_print(result)
         assert "bookingid" in result
