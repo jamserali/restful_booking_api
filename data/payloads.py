@@ -30,9 +30,18 @@ def get_updated_booking_payload():
     return payload
 
 
+def get_partially_update_booking_payload():
+    payload = get_booking_payload()
+    payload.update({
+        "firstname": "Smith",
+        "lastname": "ducked"
+    })
+    return payload
+
+
 def get_access_token_payload(client_id, client_secret):
     return {
-            "grand_type": "client_credentials",
-            "client_id": client_id,
-            "client_secret": client_secret
+        "grand_type": "client_credentials",
+        "client_id": client_id,
+        "client_secret": client_secret
     }

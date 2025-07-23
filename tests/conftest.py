@@ -1,13 +1,33 @@
 import pytest
 from data.headers import Headers
 from utils.api_client import APIClient
-from data.payloads import get_auth_payload, get_access_token_payload
+from data.payloads import get_auth_payload
 from endpoints.booking_endpoints import BookingEndpoints
+from utils.aws_secrets import AWSSecretManager
+
 
 @pytest.fixture
 def api_client():
     return APIClient()
 
+
+@pytest.fixture(scope="session")
+def aws_secrets():
+    """Fixture to verify AWS secrets are accessible"""
+    try:
+        secret = AWSSecretManager.get_secret("Secret_name")
+        assert secret is not None
+        return secret
+    except Exception as e:
+        pytest.skip(f"AWS Secrets not available: {str(e)}")
+
+# Oauth token
+@pytest.fixture
+def aws_auth_token(aws_secrets):
+    """Fixture to get auth token (already handled by APIClient)"""
+    return AWSSecretManager.get_access_token()
+
+# Basic Auth token
 @pytest.fixture
 def auth_token(api_client):
     response = api_client.post(
@@ -17,14 +37,3 @@ def auth_token(api_client):
     )
     assert response.status_code == 200
     return response.json()["token"]
-
-@pytest.fixture
-def booking_id(api_client, auth_token):
-    from data.payloads import get_booking_payload
-    response = api_client.post(
-        BookingEndpoints.booking(),
-        headers=Headers.get_json_headers(),
-        json=get_booking_payload()
-    )
-    assert response.status_code == 200
-    return response.json()["bookingid"]
