@@ -62,6 +62,7 @@ class APIClient:
             secret = json.loads(response["SecretString"])
             return secret
 
+    # get access token 
     def get_access_token(self):
         secret_data = self.get_secret("Secret_name")
         client_id = secret_data["client_id"]
