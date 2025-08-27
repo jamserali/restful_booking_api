@@ -29,5 +29,5 @@ jobs:
 
       # Step 4: Run pytest
       - name: Run API tests with pytest
-        run: |
-          pytest -v --maxfail=1 --disable-warnings -q
+        run: 
+          pytest -v --maxfail=1 --disable-warnings -q --html=report.html
